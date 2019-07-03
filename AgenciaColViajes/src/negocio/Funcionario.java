@@ -2,6 +2,7 @@ package negocio;
 
 import java.util.*;
 import mvcf.AModel;
+import servicio.ServidorCentralServer;
 
 /**
  * 
@@ -14,11 +15,10 @@ public class Funcionario extends AModel{
     private ArrayList<Venta> ventas;
 
 
-
     /**
      * Default constructor
      */
-    public Funcionario(ArrayList<Cliente> lista,ArrayList<Venta> ventas) {
+    public Funcionario(ArrayList<Cliente> lista) {
         this.listaClientes=lista;
         this.ventas=ventas;
     }

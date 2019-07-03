@@ -21,9 +21,13 @@ public class Main {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         
         ArrayList<Cliente> listaClientes= new ArrayList ();
-        //Funcionario fun= new Funcionario(listaClientes);
-        Cliente c1=new Cliente(123,"Ander", "clae", "12/01/1990", "adr@gmail.com","M", "pomona", "popa", 32413545);
-       // fun.addCliente(c1);
+        Funcionario fun= new Funcionario(listaClientes);
+        Cliente c1;
+        c1 = new Cliente();
+        c1.setNombre("julio");
+        c1.setApellidos("mocoa");
+        c1.setIdentificacion();
+       fun.addCliente(c1);
         PackComponent principal =  new  RegionComponent ( " Europa " );
         PackComponent pais1 =  new  RegionComponent ( " Italia " );
         PackComponent pais2 =  new  RegionComponent ( " Francia " );
@@ -34,9 +38,9 @@ public class Main {
         PackComponent ciudad3 =  new  CityComponent ( " Madrid " , 3000000 );
         PackComponent ciudad4 =  new  CityComponent ( " Valencia " , 2000000 );
 
-       // fun.addPack (pais1);
-        //fun.addPack (pais2);
-        //fun.addPack (pais3);
+       fun.addPack (pais1);
+        fun.addPack (pais2);
+        fun.addPack (pais3);
 
         pais1 . addComponent (ciudad1);
         pais2 . addComponent (ciudad2);

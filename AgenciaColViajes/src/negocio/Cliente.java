@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Cliente {
     
-    private long identificacion;
+    private double identificacion;
     private String nombre;
     private String apellidos;
     private Date fecha_nac;//TODO
@@ -24,7 +24,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(long identificacion, String nombre, String apellidos, String fecha_nac, String email, String genero, String direccion, String ciudad, long celular) {
+    public Cliente(double identificacion, String nombre, String apellidos, String fecha_nac, String email, String genero, String direccion, String ciudad, long celular) {
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -36,7 +36,7 @@ public class Cliente {
         this.celular = celular;
     }
 
-    public Cliente(long identificacion, String nombre, String apellidos, String email, String genero) {
+    public Cliente(double identificacion, String nombre, String apellidos, String email, String genero) {
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -46,11 +46,11 @@ public class Cliente {
     
     
 
-    public long getIdentificacion() {
+    public double getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(long identificacion) {
+    public void setIdentificacion(double identificacion) {
         this.identificacion = identificacion;
     }
 
