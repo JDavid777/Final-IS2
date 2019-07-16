@@ -6,26 +6,29 @@
 package presentacion;
 
 
+import acceso.ServidorCentral;
+import acceso.ServidorCentralSocket;
+import com.google.gson.Gson;
 import negocio.Usuario;
 import utilidades.Utilidades;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import negocio.GestorUsuarios;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+import negocio.Funcionario;
 
 /**
  *
  * @author libardo
  */
 public class GUIAutenticacion extends javax.swing.JFrame {
-
-    GestorUsuarios gestorUsuarios = new GestorUsuarios();
+    Funcionario funcionario = new Funcionario();
     /**
      * Creates new form GUIInicioSesion
      */
     public GUIAutenticacion() {
         initComponents();
-        gestorUsuarios.crearUsuario("admin", "123", "admin admin");
         setLocationRelativeTo(null);
         Image icon = Toolkit.getDefaultToolkit().getImage("./src/recursos/logo.png");
         this.setIconImage(icon);
@@ -47,7 +50,7 @@ public class GUIAutenticacion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtContrasenia = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         pnlSur = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
@@ -73,12 +76,12 @@ public class GUIAutenticacion extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
         pnlCentro.add(jLabel3);
 
-        txtContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtContraseniaKeyPressed(evt);
+                txtPasswordKeyPressed(evt);
             }
         });
-        pnlCentro.add(txtContrasenia);
+        pnlCentro.add(txtPassword);
 
         getContentPane().add(pnlCentro, java.awt.BorderLayout.CENTER);
 
@@ -110,29 +113,24 @@ public class GUIAutenticacion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        //Utilidades.usuario = new Usuario(txtUsuario.getText(), txtContrasenia.getText(), "");
-        Usuario usuario = new Usuario(txtUsuario.getText(), txtContrasenia.getText(), "");
-        
-        //Aqui vendria el analizar si el usuario existe en el sistema
-        if (gestorUsuarios.buscarUsuario(usuario)) {
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    GUIMenu ins = new GUIMenu();
-                    ins.setExtendedState(MAXIMIZED_BOTH);
-                    ins.setVisible(true);
-                }
-            });
-            this.dispose();
-        } else {
-            Utilidades.mensajeAdvertencia("Contraseña incorrecta", "Atención");
+            if(verificarUsuario()){
+            JOptionPane.showMessageDialog(null, "Bienvenido");
+            this.setVisible(false);
+            GUIMenu vistaClientes = new GUIMenu();
+            vistaClientes.setVisible(true);
+           // GUIPaquetes vistaPaquetes = new GUIPaquetes();
+           // vistaPaquetes.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
-    private void txtContraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseniaKeyPressed
+    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             btnAceptarActionPerformed(null);
         }
-    }//GEN-LAST:event_txtContraseniaKeyPressed
+    }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**
      * @param args the command line arguments
@@ -169,6 +167,31 @@ public class GUIAutenticacion extends javax.swing.JFrame {
             }
         });
     }
+    public boolean verificarUsuario(){
+       Funcionario usuarios[] = consultarUsuariosServicio();
+        for (Funcionario usuario : usuarios) {
+            char[] contra = usuario.getPassword().toCharArray();
+            if(usuario.getUsername().equals(this.txtUsuario.getText()) && Arrays.equals(contra, this.txtPassword.getPassword())){
+                return true;
+            }
+        }
+       return false;
+    }
+    private Funcionario[] consultarUsuariosServicio(){
+        ServidorCentral servidor = new ServidorCentralSocket();
+        String json = servidor.consultarUsuarios();
+        if (!json.equals("NO_ENCONTRADO")) {
+            Funcionario usuariosServidor[];
+            usuariosServidor = deserializarUsuarios(json);
+            //this.notificar();
+            return usuariosServidor;
+        }
+        return null;
+    }
+    private Funcionario[] deserializarUsuarios(String arrayJsonSerializado){
+        Funcionario funcionarios[] = new Gson().fromJson(arrayJsonSerializado, Funcionario[].class);
+        return funcionarios;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
@@ -178,7 +201,7 @@ public class GUIAutenticacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlSur;
-    private javax.swing.JPasswordField txtContrasenia;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
