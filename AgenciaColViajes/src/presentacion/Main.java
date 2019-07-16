@@ -26,7 +26,7 @@ public class Main {
         c1 = new Cliente();
         c1.setNombre("julio");
         c1.setApellidos("mocoa");
-        c1.setIdentificacion();
+        //c1.setIdentificacion();
        fun.addCliente(c1);
         PackComponent principal =  new  RegionComponent ( " Europa " );
         PackComponent pais1 =  new  RegionComponent ( " Italia " );
