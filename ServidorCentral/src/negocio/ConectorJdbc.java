@@ -20,7 +20,7 @@ public class ConectorJdbc {
     private ResultSet rs;
     private Statement st;
     //MODIFICAR BASE
-    private final String URL = "jdbc:hsqldb:file:/home/dawish/NetBeansProjects/Final_IS-2/ServidorCentral/bdd/Servidor;hsqldb.lock_file=false";
+    private final String URL = "jdbc:hsqldb:file:C:/Users/Cuatro/Documents/NetBeansProjects/Final-IS22/ServidorCentral/bdd/Servidor;hsqldb.lock_file=false";
     
     private final String USER = "admin";
     private final String PASSWORD = "123";
