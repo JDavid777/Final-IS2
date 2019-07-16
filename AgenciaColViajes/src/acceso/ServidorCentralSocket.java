@@ -93,5 +93,11 @@ public class ServidorCentralSocket implements ServidorCentral{
         String respuesta = consultarServicio("eliminarCliente,"+id);
         return respuesta.equals("Exito");
     }
+    
+    @Override
+    public boolean agregarVenta(String idVenta, String idCliente,String idPaquete) {
+         String respuesta = consultarServicio("agregarVenta,"+idVenta+","+idCliente+","+idPaquete+",");
+        return respuesta.equals("Exito");
+    }
 
 }

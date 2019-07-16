@@ -69,6 +69,7 @@ public class GUIMenu extends javax.swing.JFrame {
         mnuPaquetesPersonalizados = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuPaquetesTodoIncluido = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
         mnuInformes = new javax.swing.JMenu();
         mnuIngresosPorFecha = new javax.swing.JMenuItem();
@@ -104,6 +105,14 @@ public class GUIMenu extends javax.swing.JFrame {
             }
         });
         mnuPaqueteTodoIncluido.add(mnuPaquetesTodoIncluido);
+
+        jMenuItem1.setText("Ventas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mnuPaqueteTodoIncluido.add(jMenuItem1);
 
         mnuSalir.setText("Salir");
         mnuSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +189,7 @@ public class GUIMenu extends javax.swing.JFrame {
         jMenuBar1.add(mnuAyuda);
 
         mnuEmpleadoLogueado.setBackground(java.awt.Color.magenta);
+        mnuEmpleadoLogueado.setForeground(java.awt.SystemColor.activeCaption);
         mnuEmpleadoLogueado.setText("Usuario_logueado");
         mnuEmpleadoLogueado.setEnabled(false);
         jMenuBar1.add(mnuEmpleadoLogueado);
@@ -254,6 +264,10 @@ public class GUIMenu extends javax.swing.JFrame {
         ins.show();
     }//GEN-LAST:event_mnuPaquetesTodoIncluidoActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -295,6 +309,7 @@ public class GUIMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnInicializar;
     private javax.swing.JDesktopPane dskEscritorio;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenuItem mnuAcercaDe;

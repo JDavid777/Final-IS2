@@ -17,4 +17,5 @@ public interface ServidorCentral {
     public boolean agregarCliente(String id, String nombres, String apellidos,String fechaNac, String direccion, String celular,String ciudad, String email, String sexo);
     public boolean editarCliente(String id, String nombres, String apellidos,String fechaNac, String direccion, String celular,String ciudad, String email, String sexo);
     public boolean eliminarCliente(String id);
+    public boolean agregarVenta(String idCliente, String idVenta,String idPaquete);
 }
