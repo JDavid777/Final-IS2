@@ -5,12 +5,12 @@ import java.util.*;
 /**
  * 
  */
-public class ServidorHotelesSocked implements ServidorHoteles {
+public class ServidorHotelesSocket implements ServidorHoteles {
 
     /**
      * Default constructor
      */
-    public ServidorHotelesSocked() {
+    public ServidorHotelesSocket() {
     }
 
     /**

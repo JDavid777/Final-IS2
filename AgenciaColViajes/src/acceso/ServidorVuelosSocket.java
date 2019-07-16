@@ -5,12 +5,12 @@ import java.util.*;
 /**
  * 
  */
-public class ServidorVuelosSocked implements ServidorVuelos {
+public class ServidorVuelosSocket implements ServidorVuelos {
 
     /**
      * Default constructor
      */
-    public ServidorVuelosSocked() {
+    public ServidorVuelosSocket() {
     }
 
     /**

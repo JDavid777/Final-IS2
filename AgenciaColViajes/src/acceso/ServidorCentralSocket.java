@@ -5,12 +5,12 @@ import java.util.*;
 /**
  * 
  */
-public class ServidorCentralSocked implements ServidorCentral {
+public class ServidorCentralSocket implements ServidorCentral {
 
     /**
      * Default constructor
      */
-    public ServidorCentralSocked() {
+    public ServidorCentralSocket() {
     }
 
     /**
