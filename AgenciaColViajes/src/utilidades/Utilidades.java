@@ -1,6 +1,6 @@
-package com.unicauca.agencia.utilidades;
+package utilidades;
 
-import com.unicauca.agencia.negocio.Usuario;
+import negocio.Usuario;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

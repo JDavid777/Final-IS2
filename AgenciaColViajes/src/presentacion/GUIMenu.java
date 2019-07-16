@@ -5,7 +5,7 @@
  */
 package presentacion;
 
-import com.unicauca.agencia.utilidades.Utilidades;
+import utilidades.Utilidades;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;

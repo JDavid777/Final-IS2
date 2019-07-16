@@ -1,129 +1,146 @@
 package negocio;
 
+import acceso.ServidorCentral;
+import acceso.ServidorCentralSocket;
+import com.google.gson.Gson;
 import java.util.*;
 import mvcf.AModel;
-import servicio.ServidorCentralServer;
 
 /**
  * 
  */
-public class Funcionario extends AModel{
-
-    private String userName;
-    private String passWord;
-    private ArrayList<Cliente> listaClientes;
-    private ArrayList<Venta> ventas;
-
-
-    /**
-     * Default constructor
-     */
-    public Funcionario(ArrayList<Cliente> lista) {
-        this.listaClientes=lista;
-        this.ventas=ventas;
-    }
-
-    /**
-     * @param cliente
-     */
-    public void addCliente(Cliente cliente) {
-        if (cliente!=null) {
-            this.listaClientes.add(cliente);
-        }
-    }
-
-    /**
-     * @param cliente
-     */
-    public void editarCliente(Cliente cliente) {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void consultarCliente() {
-        // TODO implement here
-    }
-
-    /**
-     * @param cliente
-     */
-    public void eliminarCliente(Cliente cliente) {
-        // TODO implement here
-    }
-
-    /**
-     * @param pack
-     */
-    public void addPack(PackComponent pack) {
-        // TODO implement here
-    }
-
-    /**
-     * @param pack
-     */
-    public void eliminarPack(PackComponent pack) {
-        // TODO implement here
-    }
-
-    /**
-     * @param pack
-     */
-    public void consultarPack(PackComponent pack) {
-        // TODO implement here
-    }
-
-    /**
-     * @param pack
-     */
-    public void editarPack(PackComponent pack) {
-        // TODO implement here
-    }
-
-    /**
-     * @param venta
-     */
-    public void addVenta(Venta venta) {
-        
-    }
-
-    /**
-     * @param venta
-     */
-    public void editarVenta(Venta venta) {
-        // TODO implement here
-    }
-
-    /**
-     * @param venta
-     */
-    public void consultarVenta(Venta venta) {
-        // TODO implement here
-    }
-
-    /**
-     * @param venta
-     */
-    public void eliminarVenta(Venta venta) {
-        // TODO implement here
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+public class Funcionario extends AModel {
+    
+    private final ServidorCentral servidor;
+    private ArrayList <Cliente> clientes;
+    
+    private String username;
+    private String password;
+    private String nombre;
+    
+    public Funcionario() {
+        this.servidor = new ServidorCentralSocket();
+        this.clientes = new ArrayList<>();
     }
     
+
+    public Funcionario(String username, String password, String nombre) {
+        this.servidor = new ServidorCentralSocket(); 
+        this.clientes = new ArrayList<>();
+        
+        this.username = username;
+        this.password = password;
+        this.nombre = nombre;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+    
+     /**
+     * Busca los clientes en el servidor remoto del servidor central
+     * además, llena el listado de clientes del sistema
+     */
+    public void consultarClientesServicio() {
+        //Obtiene el objeto json serializado al servidor de la registraduria
+        Cliente clientesServidor[];
+        String json = servidor.consultarClientes();
+        System.out.println("Json:"+json);
+        this.clientes.clear();
+        if (!json.equals("NO_ENCONTRADO")) {
+            clientesServidor = deserializarClientes(json);
+        
+            for (Cliente cliente : clientesServidor) {
+                this.clientes.add(cliente);
+            }
+            //this.notificar();   
+        }
+    }
+    
+    /**
+     * CRUD DE CLIENTES
+     */
+    
+    /**
+     * Agrega un Cliente a la Agencia de Viajes
+     * @param id
+     * @param nombres
+     * @param apellidos
+     * @param fechaNac
+     * @param direccion
+     * @param celular
+     * @param ciudad
+     * @param email
+     * @param sexo
+     * @return true o false si se puede o no agregar el cliente
+     */
+    public boolean agregarClienteServicio(String id, String nombres, String apellidos,String fechaNac, String direccion, String celular,String ciudad, String email, String sexo) {
+        return servidor.agregarCliente(id, nombres, apellidos, fechaNac, direccion, celular, ciudad, email, sexo);
+    }
+
+    /**
+     * Edita un Cliente de la Agencia de Viajes
+     * @param id
+     * @param nombres
+     * @param apellidos
+     * @param fechaNac
+     * @param direccion
+     * @param celular
+     * @param ciudad
+     * @param email
+     * @param sexo
+     * @return true o false si se puede o no editar el cliente
+     */
+    public boolean editarCliente(String id, String nombres, String apellidos,String fechaNac, String direccion, String celular,String ciudad, String email, String sexo) {
+        return servidor.editarCliente(id, nombres, apellidos, fechaNac, direccion, celular, ciudad, email, sexo);
+    }
+
+    /**
+     * Elimina un Cliente de la Agencia de Viajes
+     * @param id
+     * @return true o false si se puede o no eliminar el cliente
+     */
+    public boolean eliminarCliente(String id) {
+        return servidor.eliminarCliente(id);
+    }
+    
+    /**
+     * Deserializa el String JSon serializado de los clientes traidos desde el servidor central
+     * @param arrayJsonSerializado
+     * @return Cliente[] array con los clientes deserializados
+     */
+    public static Cliente[] deserializarClientes(String arrayJsonSerializado) {
+ 
+        Cliente clientes[] = new Gson().fromJson(arrayJsonSerializado, Cliente[].class);
+        return clientes;
+    }
 
 }

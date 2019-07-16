@@ -19,48 +19,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        
-        ArrayList<Cliente> listaClientes= new ArrayList ();
-        Funcionario fun= new Funcionario(listaClientes);
-        Cliente c1;
-        c1 = new Cliente();
-        c1.setNombre("julio");
-        c1.setApellidos("mocoa");
-        //c1.setIdentificacion();
-       fun.addCliente(c1);
-        PackComponent principal =  new  RegionComponent ( " Europa " );
-        PackComponent pais1 =  new  RegionComponent ( " Italia " );
-        PackComponent pais2 =  new  RegionComponent ( " Francia " );
-        PackComponent pais3 =  new  RegionComponent ( " España " );
-
-        PackComponent ciudad1 =  new  CityComponent ( " Roma " , 1000000 );
-        PackComponent ciudad2 =  new  CityComponent ( " Paris " , 2000000 );
-        PackComponent ciudad3 =  new  CityComponent ( " Madrid " , 3000000 );
-        PackComponent ciudad4 =  new  CityComponent ( " Valencia " , 2000000 );
-
-       fun.addPack (pais1);
-        fun.addPack (pais2);
-        fun.addPack (pais3);
-
-        pais1 . addComponent (ciudad1);
-        pais2 . addComponent (ciudad2);
-        pais3 . addComponent (ciudad3);
-        pais3 . addComponent (ciudad4);
-        Venta v= new Venta();
-       
-        
-            Pago pago; // Referencia a la clase base
-        try {
- 
-            pago= v.getFabrica().getPago("negocio.PagoContado");
-            pago.registrarPago(c1,12342);
-
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
+         GUIAutenticacion login = new GUIAutenticacion();
+         login.setVisible(true);
+   
         
     }
     

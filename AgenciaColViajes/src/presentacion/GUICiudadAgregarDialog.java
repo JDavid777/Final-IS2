@@ -5,7 +5,7 @@
  */
 package presentacion;
 
-import com.unicauca.agencia.utilidades.Utilidades;
+import utilidades.Utilidades;
 import java.util.Date;
 
 /**

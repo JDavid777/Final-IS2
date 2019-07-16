@@ -6,8 +6,8 @@
 package presentacion;
 
 
-import com.unicauca.agencia.negocio.Usuario;
-import com.unicauca.agencia.utilidades.Utilidades;
+import negocio.Usuario;
+import utilidades.Utilidades;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;

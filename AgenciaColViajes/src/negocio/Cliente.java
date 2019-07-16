@@ -1,56 +1,41 @@
 package negocio;
 
-import java.util.*;
 
 /**
  * 
  */
 public class Cliente {
     
-    private double identificacion;
+    private String identificacion;
     private String nombre;
     private String apellidos;
-    private Date fecha_nac;//TODO
-    private String fecha_nac2;
+    private String fechaNac;
     private String email;
     private String genero;
     private String direccion;
     private String ciudad;
-    private long celular;
+    private String celular;
     
-    /**
-     * Default constructor
-     */
     public Cliente() {
     }
 
-    public Cliente(double identificacion, String nombre, String apellidos, String fecha_nac, String email, String genero, String direccion, String ciudad, long celular) {
-        this.identificacion = identificacion;
-        this.nombre = nombre;
+    public Cliente(String id, String nombres, String apellidos,String fechaNac, String direccion, String celular,String ciudad, String email, String sexo) {
+        this.identificacion = id;
+        this.nombre = nombres;
         this.apellidos = apellidos;
-        this.fecha_nac2 = fecha_nac;
+        this.fechaNac = fechaNac;
         this.email = email;
-        this.genero = genero;
+        this.genero = sexo;
         this.direccion = direccion;
         this.ciudad = ciudad;
         this.celular = celular;
     }
 
-    public Cliente(double identificacion, String nombre, String apellidos, String email, String genero) {
-        this.identificacion = identificacion;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.genero = genero;
-    }
-    
-    
-
-    public double getIdentificacion() {
+    public String getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(double identificacion) {
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 
@@ -70,12 +55,12 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public Date getFecha_nac() {
-        return fecha_nac;
+    public String getFechaNac() {
+        return fechaNac;
     }
 
-    public void setFecha_nac(Date fecha_nac) {
-        this.fecha_nac = fecha_nac;
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
     public String getEmail() {
@@ -110,14 +95,12 @@ public class Cliente {
         this.ciudad = ciudad;
     }
 
-    public long getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(long celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
-
     
-
 }
