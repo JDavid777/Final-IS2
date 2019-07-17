@@ -5,7 +5,6 @@
  */
 package Test;
 
-import negocio.Cliente;
 import negocio.Funcionario;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,8 +17,7 @@ public class GestorClientesTest {
     
     public GestorClientesTest() {
     }
-    
-     @Test
+        @Test
     public void testCRUDCliente() throws Exception {
         
         
@@ -76,5 +74,4 @@ public class GestorClientesTest {
         assertEquals(null, result);
        */      
     }
-    
 }
