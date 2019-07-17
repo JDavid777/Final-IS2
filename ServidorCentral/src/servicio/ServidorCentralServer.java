@@ -31,7 +31,7 @@ public class ServidorCentralServer implements Runnable{
     private final GestorClientes gesClientes;
     private final GestorUsuarios gesUsuarios;
     
-    private static ServerSocket ssock;
+    private static ServerSocket ssocket;
     private static Socket socket;
 
     private Scanner entradaDecorada;
@@ -66,7 +66,7 @@ public class ServidorCentralServer implements Runnable{
 
     private static void abrirPuerto() {
         try {
-            ssock = new ServerSocket(PUERTO);
+            ssocket = new ServerSocket(PUERTO);
             System.out.println("Escuchando por el puerto " + PUERTO);
         } catch (IOException ex) {
             Logger.getLogger(ServidorCentralServer.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,7 +78,7 @@ public class ServidorCentralServer implements Runnable{
      */
     private static void esperarAlCliente() {
         try {
-            socket = ssock.accept();
+            socket = ssocket.accept();
             System.out.println("Cliente conectado");
         } catch (IOException ex) {
             Logger.getLogger(ServidorCentralServer.class.getName()).log(Level.SEVERE, null, ex);
@@ -167,9 +167,8 @@ public class ServidorCentralServer implements Runnable{
                 salidaDecorada.println(serializarUsuarios(usuarios));
                 break;
             case "agregarCliente":
-                System.out.println("Estoy en agregar cliente del servidor");
                 gesClientes.agregarCliente(parametros[1], parametros[2], parametros[3], parametros[4], parametros[5], parametros[6], parametros[7], parametros[8], parametros[9]);
-                salidaDecorada.println("Si");
+                salidaDecorada.println("Exito");
                 break;
         }
     }
