@@ -3,7 +3,9 @@ package negocio;
 import java.util.*;
 
 /**
- * 
+ * Clase abstracta para el manejo de paquetes de viajes personalizados.
+ * Sigue el patron composite
+ * @author dawish
  */
 public abstract class PackComponent {
 

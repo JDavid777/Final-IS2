@@ -3,7 +3,8 @@ package negocio;
 import java.util.*;
 
 /**
- * 
+ * Clase de la cual se crearan regiones a las que pertenecera un plan de viaje
+ * @author dawish
  */
 public class RegionComponent extends PackComponent {
 

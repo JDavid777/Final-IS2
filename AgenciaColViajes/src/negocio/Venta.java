@@ -2,7 +2,8 @@ package negocio;
 
 
 /**
- * 
+ * Clase de la que se creara una venta de un paquete turistico
+ * @author dawish
  */
 public class Venta {
 

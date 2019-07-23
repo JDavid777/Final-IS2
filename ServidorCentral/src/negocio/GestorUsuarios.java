@@ -9,31 +9,39 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ *Gestiona los usuarios almacenados en la base de datos
  * @author David
  */
 public class GestorUsuarios {
-    ArrayList<FuncionarioAgencia> listado;
+
     private ConectorJdbc conector;
 
     public GestorUsuarios() {
         this.conector = new ConectorJdbc();
     }
+    /**
+     * 
+     * @param conector 
+     */
+    public GestorUsuarios(ConectorJdbc conector) {
 
-    public GestorUsuarios(ArrayList<FuncionarioAgencia> listado, ConectorJdbc conector) {
-        this.listado = listado;
         this.conector = conector;
     }
-    
-    public ArrayList<FuncionarioAgencia> consultarUsuarios() throws ClassNotFoundException, SQLException{
+    /**
+     * 
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
+    public ArrayList<Funcionario> consultarUsuarios() throws ClassNotFoundException, SQLException{
         //TODO Buscar        
           
         conector.conectarse();
         conector.crearConsulta("SELECT * FROM USUARIO;");
-        ArrayList<FuncionarioAgencia> usuarios = new ArrayList();
+        ArrayList<Funcionario> usuarios = new ArrayList();
 
         while (conector.getResultado().next()) {
-            FuncionarioAgencia usu = new FuncionarioAgencia(conector.getResultado().getString("username"), conector.getResultado().getString("password"),conector.getResultado().getString("nombre_completo"));
+            Funcionario usu = new Funcionario(conector.getResultado().getString("username"), conector.getResultado().getString("password"),conector.getResultado().getString("nombre_completo"));
             usuarios.add(usu);
         }
         conector.desconectarse();

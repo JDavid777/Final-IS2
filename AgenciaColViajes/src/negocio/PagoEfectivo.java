@@ -2,7 +2,8 @@ package negocio;
 
 
 /**
- * 
+ * Clase para la creacion del metod de pago en efectivo, subclase de Pago
+ * @author dawish
  */
 public class PagoEfectivo extends Pago {
 
@@ -10,13 +11,6 @@ public class PagoEfectivo extends Pago {
      * Default constructor
      */
     public PagoEfectivo() {
-    }
-
-    /**
-     * 
-     */
-    public void PagoEfectivo() {
-        // TODO implement here
     }
    
     /**

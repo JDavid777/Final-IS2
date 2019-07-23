@@ -3,7 +3,8 @@ package negocio;
 import java.util.*;
 
 /**
- * 
+ * Clase a partir de la cuan se crearan objetos de tipo hotel que tendra la base de datos de la agencia
+ * @author dawish
  */
 public class Hotel {
 
@@ -13,7 +14,10 @@ public class Hotel {
      */
     public Hotel() {
     }
-
+    /**
+     * Construye un hotel con nombre
+     * @param nombre 
+     */
     public Hotel(String nombre) {
         this.nombre = nombre;
     }

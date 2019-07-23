@@ -6,18 +6,24 @@
 package negocio;
 
 /**
- *
+ *Funionario de la agencia de viajes que estara en la bse de datos
  * @author David
  */
-public class FuncionarioAgencia {
+public class Funcionario {
     private String username;
     private String password;
     private String nombre;
 
-    public FuncionarioAgencia() {
+    public Funcionario() {
     }
+    /**
+     * 
+     * @param username
+     * @param password
+     * @param nombre 
+     */
 
-    public FuncionarioAgencia(String username, String password, String nombre) {
+    public Funcionario(String username, String password, String nombre) {
         this.username = username;
         this.password = password;
         this.nombre = nombre;

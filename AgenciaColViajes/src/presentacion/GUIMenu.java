@@ -211,11 +211,13 @@ public class GUIMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuPaquetesPersonalizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuPaquetesPersonalizadosActionPerformed
-        GUIPaquetesPersonalizados ins = new GUIPaquetesPersonalizados();
-        ins.setMaximizable(true);
-
-        dskEscritorio.add(ins);
-        ins.show();
+        GUIPaquetesPersonalizados ins = GUIPaquetesPersonalizados.getInstance();
+        if (!ins.isShowing()) {
+             ins.setMaximizable(true);
+            dskEscritorio.add(ins);
+            ins.show();
+        }
+       
     }//GEN-LAST:event_mnuPaquetesPersonalizadosActionPerformed
 
     private void mnuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirActionPerformed
@@ -256,12 +258,13 @@ public class GUIMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicializarActionPerformed
 
     private void mnuPaquetesTodoIncluidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuPaquetesTodoIncluidoActionPerformed
-        // TODO add your handling code here:
-        GUIPaquetesTodoIncluido ins = new GUIPaquetesTodoIncluido();
-        ins.setMaximizable(true);
-
-        dskEscritorio.add(ins);
-        ins.show();
+         GUIPaquetesTodoIncluido ins = GUIPaquetesTodoIncluido.getInstance();
+        if (!ins.isShowing()) {
+             ins.setMaximizable(true);
+            dskEscritorio.add(ins);
+            ins.show();
+        }
+       
     }//GEN-LAST:event_mnuPaquetesTodoIncluidoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

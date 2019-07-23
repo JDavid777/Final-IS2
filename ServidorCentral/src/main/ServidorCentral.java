@@ -8,7 +8,7 @@ package main;
 import servicio.ServidorCentralServer;
 
 /**
- *
+ *Arranque del servidor central
  * @author David
  */
 public class ServidorCentral {

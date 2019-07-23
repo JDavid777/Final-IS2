@@ -10,16 +10,24 @@ import java.util.logging.Logger;
 
 
 /**
- * 
+ * Servidor concreto para el servidor central de la agencia de viajes
+ * * @author David Garcia, Victor Sotelo, Camilo Meneses
+ * Fecha creacion: 22/06/2019
+ * Fecha ultima modificacion: 23/06/2019
  */
 public class ServidorCentralSocket implements ServidorCentral{
+    
     private Socket socket = null;
     private Scanner entradaDecorada;
     private PrintStream salidaDecorada;
     private final String IP_SERVIDOR = "localhost";
     private final int PUERTO = 5000;
     
-    //Metodos
+    /**
+     * Metodo generico para realizar una consulta al servidor central 
+     * @param servicio 
+     * @return 
+     */
     private String consultarServicio(String servicio) {
        String respuesta = null;
         try{
@@ -34,7 +42,12 @@ public class ServidorCentralSocket implements ServidorCentral{
         
         return respuesta;
     }
-    
+    /**
+     * Retorna el resultado de una consulta realizada al servidor
+     * @param servicio
+     * @return
+     * @throws IOException 
+     */
     private String leerFlujoEntradaSalida(String servicio) throws IOException {
         String respuesta = "";
         entradaDecorada = new Scanner(socket.getInputStream());
@@ -47,12 +60,16 @@ public class ServidorCentralSocket implements ServidorCentral{
         }
         return respuesta;
     }
-
+    /**
+     * Cierra la comunicacion con el servidor
+     */
     private void cerrarFlujos() {
         salidaDecorada.close();
         entradaDecorada.close();
     }
-
+    /**
+     * Realiza la desconexion con el servidor central
+     */
     private void desconectar() {
         try {
             socket.close();
@@ -60,7 +77,9 @@ public class ServidorCentralSocket implements ServidorCentral{
             Logger.getLogger(ServidorCentralSocket.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    /**
+     * Inicia una nueva conexion con el servidor
+    */
     public void conectar(String address, int port) throws IOException {
         socket = new Socket(address, port);
         System.out.println("Conectado");

@@ -9,26 +9,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ *Gestiona las ventas almacenadas en la base de datos de la agencia
  * @author Cuatro
  */
 public class GestorVentas {
         
-    ArrayList<Venta> listado;
     private ConectorJdbc conector;
     
     public GestorVentas() {
-        listado = new ArrayList();
         conector = new ConectorJdbc();
-        inicializar();
-    }
-    
-    public void inicializar() {
-        //TODAS LAS VENTAS  
-    }
-    
-    public ArrayList<Venta> getListado(){
-        return (ArrayList<Venta>) listado;
     }
     
     public ArrayList<Venta> consultarVentas() throws ClassNotFoundException, SQLException{
@@ -47,7 +36,6 @@ public class GestorVentas {
     }
 
     public void agregarVenta(String idVenta, String idCliente, String idPaquete) throws ClassNotFoundException, SQLException {
-        System.out.println("Entre agregar gestor venta");
         conector.conectarse();
         conector.actualizar("INSERT INTO Venta(idVenta, idCliente, idPaquete)"
                 + " VALUES ("

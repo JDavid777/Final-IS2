@@ -1,9 +1,9 @@
 package negocio;
 
 import java.util.*;
-
 /**
- * 
+ * Subclase de la que se crearan objetos para el pago con tarjeta de credito
+ * @author dawish
  */
 public class PagoTarjetaCredito extends Pago {
 
@@ -18,7 +18,13 @@ public class PagoTarjetaCredito extends Pago {
      */
     public PagoTarjetaCredito() {
     }
-
+    /**
+     * Construye un metodo de pago con tarjeta de credito
+     * @param codigo
+     * @param franquisia
+     * @param numeroTarjeta
+     * @param codSeguridad 
+     */
     public PagoTarjetaCredito(String codigo, String franquisia, long numeroTarjeta, long codSeguridad) {
         this.codigo = codigo;
         this.franquisia = franquisia;

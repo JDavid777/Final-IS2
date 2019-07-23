@@ -13,26 +13,40 @@ import java.util.Date;
  * 
  */
 public class Cliente {
+
     private String identificacion;
     private String nombre;
-    public String apellidos;
+    private String apellidos;
     private String fechaNac;
     private String email;
     private String genero;
     private String direccion;
     private String ciudad;
     private String celular;
-    
+    /**
+     * Default constructor
+     */
     public Cliente() {
     }
-
-    public Cliente(String identificacion, String nombre, String apellidos, String fechaNac, String email, String genero, String direccion, String ciudad, String celular) {
-        this.identificacion = identificacion;
-        this.nombre = nombre;
+    /**
+     * Constructor parametrizado para la creacion de un cliente
+     * @param id
+     * @param nombres
+     * @param apellidos
+     * @param fechaNac
+     * @param direccion
+     * @param celular
+     * @param ciudad
+     * @param email
+     * @param sexo 
+     */
+    public Cliente(String id, String nombres, String apellidos,String fechaNac, String direccion, String celular,String ciudad, String email, String sexo) {
+        this.identificacion = id;
+        this.nombre = nombres;
         this.apellidos = apellidos;
         this.fechaNac = fechaNac;
         this.email = email;
-        this.genero = genero;
+        this.genero = sexo;
         this.direccion = direccion;
         this.ciudad = ciudad;
         this.celular = celular;

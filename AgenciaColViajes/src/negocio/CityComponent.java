@@ -3,7 +3,8 @@ package negocio;
 import java.util.*;
 
 /**
- * 
+ * Clase para la creacion de ciudades que haran parte de los paquetes turisticos de la agencia
+ * @author dawish
  */
 public class CityComponent extends PackComponent {
 
@@ -24,6 +25,7 @@ public class CityComponent extends PackComponent {
     }
 
     /**
+     * Constructor parametrizado
      * @param nombre 
      * @param precio
      */
@@ -31,7 +33,15 @@ public class CityComponent extends PackComponent {
         super(nombre);
         this.precio=precio;
     }
-    
+    /**
+     * Constructor parametrizado completo
+     * @param precio
+     * @param vuelo
+     * @param hotel
+     * @param cityTour
+     * @param planAlimentacion
+     * @param nombre 
+     */
     public CityComponent(int precio, Vuelo vuelo, Hotel hotel, CityTour cityTour, PlanAlimentacion planAlimentacion, String nombre) {
         super(nombre);
         this.precio = precio;

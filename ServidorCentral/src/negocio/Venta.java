@@ -6,7 +6,7 @@
 package negocio;
 
 /**
- *
+ *Informacion de la venta que esta almacenada en la base de datos
  * @author Cuatro
  */
 public class Venta {
@@ -14,7 +14,12 @@ public class Venta {
     private String idCliente;
     
     private String idPaquete;
-
+/**
+ * 
+ * @param idVenta
+ * @param idCliente
+ * @param idPaquete 
+ */
     public Venta(String idVenta, String idCliente, String idPaquete) {
         this.idVenta = idVenta;
         this.idCliente = idCliente;

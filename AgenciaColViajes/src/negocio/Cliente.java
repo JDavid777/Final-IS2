@@ -1,8 +1,8 @@
 package negocio;
 
-
 /**
- * 
+ * Clase usada para la creacion de objetos clientes que manipulara la agencia
+ * @author Dav
  */
 public class Cliente {
     
@@ -15,10 +15,23 @@ public class Cliente {
     private String direccion;
     private String ciudad;
     private String celular;
-    
+    /**
+     * Default constructor
+     */
     public Cliente() {
     }
-
+    /**
+     * Constructor parametrizado para la creacion de un cliente
+     * @param id
+     * @param nombres
+     * @param apellidos
+     * @param fechaNac
+     * @param direccion
+     * @param celular
+     * @param ciudad
+     * @param email
+     * @param sexo 
+     */
     public Cliente(String id, String nombres, String apellidos,String fechaNac, String direccion, String celular,String ciudad, String email, String sexo) {
         this.identificacion = id;
         this.nombre = nombres;

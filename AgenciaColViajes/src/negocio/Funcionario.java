@@ -7,7 +7,9 @@ import java.util.*;
 import mvcf.AModel;
 
 /**
- * 
+ * Clase de la cual se creara un funcionario de la agenci de visjes encargado 
+ * de administrar los paquetes y los usuarios ademas de los clientes de la agencia
+ * @author dawish
  */
 public class Funcionario extends AModel {
     
@@ -17,12 +19,19 @@ public class Funcionario extends AModel {
     private String username;
     private String password;
     private String nombre;
-    
+    /**
+     * Constructor por defecto
+     */
     public Funcionario() {
         this.servidor = new ServidorCentralSocket();
         this.clientes = new ArrayList<>();
     }
-    
+    /**
+     * Constructor parametrizado para un funcionario
+     * @param username
+     * @param password
+     * @param nombre 
+     */
 
     public Funcionario(String username, String password, String nombre) {
         this.servidor = new ServidorCentralSocket(); 

@@ -3,7 +3,8 @@ package negocio;
 import java.util.*;
 
 /**
- * 
+ * Clase usada para la creacion de tours que dara la agencia en ciertas ciudades
+ * @author dawish
  */
 public class CityTour {
     
@@ -14,7 +15,10 @@ public class CityTour {
      */
     public CityTour() {
     }
-
+    /**
+     * Cnstruye una lista de tours para una ciudades
+     * @param tours 
+     */
     public CityTour(String[] tours) {
         this.tours = tours;
     }

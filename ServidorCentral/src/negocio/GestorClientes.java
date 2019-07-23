@@ -9,28 +9,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ *Gestiona los clietes de la agencia. Usada por el funcionario de la agencia con el rol adecuado
  * @author David
  */
 public class GestorClientes {
-    
-    ArrayList<Cliente> listado;
+
     private ConectorJdbc conector;
     
     public GestorClientes() {
-        listado = new ArrayList();
         conector = new ConectorJdbc();
-        inicializar();
     }
-    
-    public void inicializar() {
-        //TODOS LOS CLIENTES   
-    }
-    
-    public ArrayList<Cliente> getListado(){
-        return (ArrayList<Cliente>) listado;
-    }
-    
+
     public ArrayList<Cliente> consultarClientes() throws ClassNotFoundException, SQLException{
         //TODO Buscar        
           

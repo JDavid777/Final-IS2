@@ -1,7 +1,7 @@
 package negocio;
-
 /**
- * 
+ * Subclase de la que se crearan objetos para el pago con tarjeta de debito
+ * @author dawish
  */
 public class PagoTarjetaDebito extends Pago {
 
@@ -13,7 +13,12 @@ public class PagoTarjetaDebito extends Pago {
      */
     public PagoTarjetaDebito() {
     }
-
+    /**
+     * Construye un metodo de pago con tarjeta debito
+     * @param codigo
+     * @param banco
+     * @param numCuenta 
+     */
     public PagoTarjetaDebito(int codigo, String banco, long numCuenta) {
         this.codigo = codigo;
         this.banco = banco;
@@ -23,7 +28,7 @@ public class PagoTarjetaDebito extends Pago {
     
 
       /**
-     * 
+     * Registra un pago
      * @param cliente
      * @param valor
      */

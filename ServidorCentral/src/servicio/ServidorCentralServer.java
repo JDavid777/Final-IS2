@@ -21,13 +21,14 @@ import java.util.logging.Logger;
 import negocio.Cliente;
 import negocio.GestorClientes;
 import negocio.GestorUsuarios;
-import negocio.FuncionarioAgencia;
+import negocio.Funcionario;
 
 /**
- *
+ *Servidor central de la agencia de viajes
  * @author David
  */
 public class ServidorCentralServer implements Runnable{
+    
     private final GestorClientes gesClientes;
     private final GestorUsuarios gesUsuarios;
     
@@ -162,7 +163,7 @@ public class ServidorCentralServer implements Runnable{
                 salidaDecorada.println(serializarClientes(clientes));
                 break;
             case "consultarUsuarios":
-                ArrayList<FuncionarioAgencia> usuarios;
+                ArrayList<Funcionario> usuarios;
                 usuarios = gesUsuarios.consultarUsuarios();
                 salidaDecorada.println(serializarUsuarios(usuarios));
                 break;
@@ -205,20 +206,18 @@ public class ServidorCentralServer implements Runnable{
             gsonObj.addProperty("celular", "" + myCliente.getCelular());
             array.add(gsonObj);
         }
-        System.out.println("Clientes json serializado: " + array.toString());
         return array.toString();
     }
-    private String serializarUsuarios(ArrayList<FuncionarioAgencia> listado) {       
+    private String serializarUsuarios(ArrayList<Funcionario> listado) {       
         JsonArray array = new JsonArray();
         JsonObject gsonObj;
-        for (FuncionarioAgencia usuario : listado) {
+        for (Funcionario usuario : listado) {
             gsonObj = new JsonObject();
             gsonObj.addProperty("nombre_completo", usuario.getNombre());
             gsonObj.addProperty("username", usuario.getUsername());
             gsonObj.addProperty("password", usuario.getPassword());
             array.add(gsonObj);
         }
-        System.out.println("Usuarios json serializado: " + array.toString());
         return array.toString();
     }
 }

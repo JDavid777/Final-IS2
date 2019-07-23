@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS CLIENTE
+(
+   id VARCHAR(30) NOT NULL,
+   nombres VARCHAR(50) NOT NULL,
+   apellidos VARCHAR(50) NOT NULL,
+   fechaNac VARCHAR(30),
+   direccion VARCHAR(60),
+   celular VARCHAR(20),
+   ciudad VARCHAR(30),
+   email VARCHAR(30),
+   sexo VARCHAR(30),
+   
+
+PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS USUARIO
+(
+   nombre_completo VARCHAR(100) NOT NULL,
+   username	  VARCHAR(50) NOT NULL,
+   password        VARCHAR(20) NOT NULL,
+   PRIMARY KEY(username)
+);
+
+INSERT INTO USUARIO (nombre_completo,username,password) VALUES ('David Garcia','jdavid','123');
+

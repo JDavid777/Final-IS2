@@ -2,7 +2,8 @@ package negocio;
 
 
 /**
- * 
+ * Clase de la cual se crearan planes de aleimentacion que tendran los paquetes turisticos
+ * @author dawish
  */
 public class PlanAlimentacion {
     
@@ -13,6 +14,10 @@ public class PlanAlimentacion {
      */
     public PlanAlimentacion() {
     }
+    /**
+     * Crea un lista de planes de alimnetacion
+     * @param alimentacion 
+     */
 
     public PlanAlimentacion(String[] alimentacion) {
         this.alimentacion = alimentacion;

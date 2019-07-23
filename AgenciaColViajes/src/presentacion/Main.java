@@ -19,7 +19,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-         GUIAutenticacion login = new GUIAutenticacion();
+         GUILogin login = new GUILogin();
+         login.setLocationRelativeTo(null);
          login.setVisible(true);
    
         

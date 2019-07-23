@@ -12,15 +12,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
+ * Clase para crear objetos encargados conectarse a la bse de datos de la agencia
  * @author David
  */
 public class ConectorJdbc {
+    
     private Connection cn;
     private ResultSet rs;
     private Statement st;
-    //MODIFICAR BASE
-    private final String URL = "jdbc:hsqldb:file:C:/Users/Cuatro/Documents/NetBeansProjects/Final-IS22/ServidorCentral/bdd/Servidor;hsqldb.lock_file=false";
+    private final String URL = "jdbc:hsqldb:file:/home/dawish/NetBeansProjects/Final-IS2/ServidorCentral/bdd/Servidor;hsqldb.lock_file=false";
     
     private final String USER = "admin";
     private final String PASSWORD = "123";
@@ -28,7 +28,11 @@ public class ConectorJdbc {
     public ConectorJdbc() {
         
     }
-
+    /**
+     * Realiza la conexion a la base de datos
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
     public void conectarse() throws ClassNotFoundException, SQLException {
         Class.forName("org.hsqldb.jdbcDriver");
         cn = DriverManager.getConnection(URL, USER, PASSWORD);

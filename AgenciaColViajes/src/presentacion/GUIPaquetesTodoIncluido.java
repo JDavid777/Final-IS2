@@ -11,18 +11,24 @@ import javax.swing.JTable;
 public class GUIPaquetesTodoIncluido extends javax.swing.JInternalFrame {
 
     private String accion;
+    private static GUIPaquetesTodoIncluido vistaTodoIncluido;
 
     /**
      * Creates new form GUITiposVehiculo
      */
-    public GUIPaquetesTodoIncluido() {
+    private GUIPaquetesTodoIncluido() {
         initComponents();
         inicializarTabla();
         btnGrabar.setEnabled(false);
         btnEliminar.setEnabled(false);
         this.setSize(1200, 680);
     }
-
+        public static GUIPaquetesTodoIncluido getInstance(){
+        if (vistaTodoIncluido==null) {
+            vistaTodoIncluido= new GUIPaquetesTodoIncluido();
+        }
+        return vistaTodoIncluido;
+    }
     private void inicializarTabla() {
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},

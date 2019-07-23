@@ -3,7 +3,8 @@ package negocio;
 import java.util.*;
 
 /**
- * 
+ * Clase de la cual se crearan objetos de vuelo 
+ * @author dawish
  */
 public class Vuelo {
     
@@ -16,7 +17,12 @@ public class Vuelo {
      */
     public Vuelo() {
     }
-
+    /**
+     * Contruye un nueo vuelo
+     * @param aerolinea
+     * @param fechaHoraLlegada
+     * @param fechaHoraSalida 
+     */
     public Vuelo(String aerolinea, Date fechaHoraLlegada, Date fechaHoraSalida) {
         this.aerolinea = aerolinea;
         this.fechaHoraLlegada = fechaHoraLlegada;

@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author libardo
+ * @author David
  */
 public class GUICiudadAgregarDialog extends javax.swing.JDialog {
 

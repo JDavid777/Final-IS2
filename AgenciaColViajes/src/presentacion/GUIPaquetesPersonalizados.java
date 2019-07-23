@@ -13,17 +13,23 @@ import javax.swing.table.DefaultTableModel;
  * tutorial: http://www.elprogramador.com.mx/celdas-no-editables-en-jtable/
  */
 public class GUIPaquetesPersonalizados extends javax.swing.JInternalFrame {
-
+    
+    private static GUIPaquetesPersonalizados vistaPersonalizados;
     /**
      * Constructor
      */
-    public GUIPaquetesPersonalizados() {
+    private GUIPaquetesPersonalizados() {
         initComponents();
         //inicializarTabla();
         inicializarFechas();
         this.setSize(790, 580);
     }
-
+    public static GUIPaquetesPersonalizados getInstance(){
+        if (vistaPersonalizados==null) {
+            vistaPersonalizados= new GUIPaquetesPersonalizados();
+        }
+        return vistaPersonalizados;
+    }
     private void inicializarFechas() {
         Date fecha = Utilidades.sumarDiasAFecha(new Date(), 30);
         String strFecha = Utilidades.formatoFecha(fecha);

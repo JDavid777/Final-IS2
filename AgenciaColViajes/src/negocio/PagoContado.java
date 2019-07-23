@@ -2,7 +2,8 @@ package negocio;
 
 
 /**
- * 
+ * Clase para la creacion del metodo de pago a contado
+ * @author dawish
  */
 public class PagoContado extends Pago {
     /**
@@ -22,14 +23,14 @@ public class PagoContado extends Pago {
     
 
     /**
-     * 
+     * Calcula el saldo pendiente de un cliente
      */
     public void calcularDeuda() {
         // TODO implement here
     }
 
     /**
-     * 
+     * Calcula el pago inicial minimo que debera realiar el cliente
      */
     public void calcularPagoInicial() {
         // TODO implement here
